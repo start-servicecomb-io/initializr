@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Spring Initializr</title>
+    <title>ServiceComb Spring Initializr</title>
     <link href="//fonts.googleapis.com/css?family=Varela+Round|Montserrat:400,700" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{{#linkTo}}/css/bootstrap.min.css{{/linkTo}}"/>
     <link rel="stylesheet" href="{{#linkTo}}/css/bootstrap-theme.min.css{{/linkTo}}"/>
@@ -21,7 +21,7 @@ new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     <div class="container-fluid">
         <div class="row start-header">
             <div class="container">
-                <h1>Spring Initializr <small>bootstrap your application now</small></h1>
+                <h1>ServiceComb Spring Initializr <small>bootstrap your application now</small></h1>
             </div>
         </div>
         <div class="container start-main">
@@ -54,6 +54,7 @@ new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
                     </h2>
                 </div>
             </div>
+
 
             <input id="baseDir" name="baseDir" type="hidden" value="{{artifactId.content}}">
 
@@ -106,8 +107,7 @@ new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
                             {{/javaVersions.content}}
                         </select>
                     </div>
-                </div>
-                <div class="col-sm-12 col-md-6">
+
                     <h2>Dependencies</h2>
 
                     <p>Add Spring Boot Starters and dependencies to your application</p>
@@ -124,7 +124,71 @@ new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
                         </div>
                     </div>
                 </div>
+
+                <div class="col-sm-12 col-md-6">
+                    <h2>ServiceComb Parameters</h2>
+                    <div class="form-group scbServiceName-form-group">
+                        <label for="scbServiceName" class="control-label">Service Name</label>
+                        <input tabindex="4" id="scbServiceName" class="form-control" type="text" value="HelloServiceComb"
+                               name="scbServiceName">
+                    </div>
+                    <div class="form-group scbServiceVersion-form-group">
+                        <label for="scbServiceVersion" class="control-label">Service Version</label>
+                        <input tabindex="4" id="scbServiceVersion" class="form-control" type="text" value="0.0.1"
+                               name="scbServiceVersion">
+                    </div>
+                    <div class="form-group scbServiceCenterAddr-form-group">
+                        <label for="scbServiceCenterAddr" class="control-label">ServiceCenter Address</label>
+                        <input tabindex="4" id="scbServiceCenterAddr" class="form-control" type="text" value="http://127.0.0.1:30100"
+                               name="scbServiceCenterAddr">
+                    </div>
+
+                    <div class="form-group rest-form-group">
+                        <div class="checkbox">
+                            <label for="rest">
+                                <input id="rest" type="checkbox" name="rest" checked="checked">rest
+                            </label>
+                        </div>
+                        <label for="scbRestaddr" class="control-label">REST listen address</label>
+                        <input tabindex="4" id="scbRestaddr" class="form-control" type="text" value="0.0.0.0:9080"
+                               name="scbRestaddr">
+                    </div>
+                    <div class="form-group highway-form-group">
+                        <div class="checkbox">
+                            <label for="highway">
+                                <input id="highway" type="checkbox" name="highway">highway
+                            </label>
+                        </div>
+                        <label for="scbHighwayaddr" class="control-label">Highway listen address</label>
+                        <input tabindex="4" id="scbHighwayaddr" class="form-control" type="text" value="0.0.0.0:9090"
+                               name="scbHighwayaddr">
+                    </div>
+                    <div class="form-group governance-form-group">
+                        <label for="governance" class="control-label">Governance</label>
+                        <div class="checkbox" style="display:inline">
+                            <label for="loadbalance">
+                                <input id="loadbalance" type="checkbox" name="loadbalance">Loadblance
+                            </label>
+                        </div>
+                        <div class="checkbox" style="display:inline">
+                            <label for="flowcontrol">
+                                <input id="flowcontrol" type="checkbox" name="flowcontrol">Flowcontrol
+                            </label>
+                        </div>
+                        <div class="checkbox" style="display:inline">
+                            <label for="circuitBreaker">
+                                <input id="circuitBreaker" type="checkbox" name="circuitBreaker">CircuitBreaker
+                            </label>
+                        </div>
+                        <div class="checkbox" style="display:inline">
+                            <label for="tracing">
+                                <input id="tracing" type="checkbox" name="tracing">Tracing
+                            </label>
+                        </div>
+                    </div>
+                </div>
             </div>
+
             <div class="row hidden tosimpleversion">
                 <p>Too many options? <a href="#">Switch back to the simple version.</a></p>
             </div>
@@ -172,8 +236,8 @@ new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 </form>
 <footer>
     <div class="container">
-        <p>start.spring.io is powered by <a href="https://github.com/spring-io/initializr/">Spring Initializr</a>
-            and <a href="https://run.pivotal.io">Pivotal Web Services</a></p>
+        <p>start.servicecomb.io is powered by <a href="https://github.com/spring-io/initializr/">Spring Initializr</a>
+            </p>
     </div>
 </footer>
 <script src="{{#linkTo}}/js/jquery-3.1.1.min.js{{/linkTo}}"></script>

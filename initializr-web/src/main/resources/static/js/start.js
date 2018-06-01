@@ -281,4 +281,9 @@ $(function () {
             applyParams();
         }
     }
+
+    // select serviceComb by default
+    $(document).ready(function() {
+        $("input[value='ServiceComb']").click()
+    });
 });

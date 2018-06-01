@@ -127,7 +127,7 @@ public final class InitializrMetadataBuilder {
 			metadata.getName().setContent("demo");
 		}
 		if (!StringUtils.hasText(metadata.getDescription().getContent())) {
-			metadata.getDescription().setContent("Demo project for Spring Boot");
+			metadata.getDescription().setContent("Demo project for ServiceComb-Spring");
 		}
 		if (!StringUtils.hasText(metadata.getGroupId().getContent())) {
 			metadata.getGroupId().setContent("com.example");

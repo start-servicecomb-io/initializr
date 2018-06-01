@@ -28,11 +28,7 @@ import io.spring.initializr.generator.ProjectGenerator;
 import io.spring.initializr.generator.ProjectRequestPostProcessor;
 import io.spring.initializr.generator.ProjectRequestResolver;
 import io.spring.initializr.generator.ProjectResourceLocator;
-import io.spring.initializr.metadata.DependencyMetadataProvider;
-import io.spring.initializr.metadata.InitializrMetadata;
-import io.spring.initializr.metadata.InitializrMetadataBuilder;
-import io.spring.initializr.metadata.InitializrMetadataProvider;
-import io.spring.initializr.metadata.InitializrProperties;
+import io.spring.initializr.metadata.*;
 import io.spring.initializr.util.TemplateRenderer;
 import io.spring.initializr.web.project.MainController;
 import io.spring.initializr.web.support.DefaultDependencyMetadataProvider;
@@ -114,9 +110,9 @@ public class InitializrAutoConfiguration {
 			RestTemplateBuilder restTemplateBuilder) {
 		InitializrMetadata metadata = InitializrMetadataBuilder
 				.fromInitializrProperties(properties).build();
-		return new DefaultInitializrMetadataProvider(metadata, objectMapper,
-				restTemplateBuilder.build());
+		return new SimpleInitializrMetadataProvider(metadata);
 	}
+
 
 	@Bean
 	@ConditionalOnMissingBean

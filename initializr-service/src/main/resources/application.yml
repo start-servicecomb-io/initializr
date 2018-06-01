@@ -12,6 +12,7 @@ server:
     enabled: true
     mime-types: application/json,text/css,text/html
     min-response-size: 2048
+  port: 80
 
 spring:
   jackson:
@@ -22,6 +23,7 @@ spring:
       strategy:
         content:
           enabled: true
+
 
 initializr:
   env:
@@ -160,6 +162,17 @@ initializr:
     kotlin:
       default-version: 1.2.20
   dependencies:
+    - name: ServiceComb
+      content:
+        - name: ServiceComb
+          id: ServiceComb
+          groupId: org.apache.servicecomb
+          artifactId: spring-boot-starter-provider
+          starter: false
+          description: ServiceComb microservice framework
+          links:
+            - rel: reference
+              href: http://servicecomb.incubator.apache.org/
     - name: Core
       content:
         - name: DevTools
@@ -1339,10 +1352,6 @@ initializr:
       id: war
       default: false
   javaVersions:
-    - id: 10
-      default: false
-    - id: 9
-      default: false
     - id: 1.8
       name: 8
       default: true
@@ -1353,19 +1362,7 @@ initializr:
     - name: Java
       id: java
       default: true
-    - name: Kotlin
-      id: kotlin
-      default: false
-    - name: Groovy
-      id: groovy
-      default: false
   bootVersions:
-    - name : Latest SNAPSHOT
-      id: 1.2.4.BUILD-SNAPSHOT
-      default: false
-    - name: 1.2.3
-      id: 1.2.3.RELEASE
+    - name: 1.5.12
+      id: 1.5.12.RELEASE
       default: true
-    - name: 1.1.12
-      id: 1.1.12.RELEASE
-      default: false

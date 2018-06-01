@@ -28,161 +28,264 @@ import org.springframework.util.StringUtils;
  */
 public class BasicProjectRequest {
 
-	private List<String> style = new ArrayList<>();
+    private List<String> style = new ArrayList<>();
 
-	private List<String> dependencies = new ArrayList<>();
+    private List<String> dependencies = new ArrayList<>();
 
-	private String name;
+    private String name;
 
-	private String type;
+    private String type;
 
-	private String description;
+    private String description;
 
-	private String groupId;
+    private String groupId;
 
-	private String artifactId;
+    private String artifactId;
 
-	private String version;
+    private String version;
 
-	private String bootVersion;
+    private String bootVersion;
 
-	private String packaging;
+    private String packaging;
 
-	private String applicationName;
+    private String applicationName;
 
-	private String language;
+    private String language;
 
-	private String packageName;
+    private String packageName;
 
-	private String javaVersion;
+    private String javaVersion;
 
-	// The base directory to create in the archive - no baseDir by default
-	private String baseDir;
+    // The base directory to create in the archive - no baseDir by default
+    private String baseDir;
 
-	public List<String> getStyle() {
-		return this.style;
-	}
+    // ServiceComb related parameters
+    private String scbServiceName;
+    private String scbServiceVersion;
+    private String scbServiceCenterAddr;
+    private boolean rest;
+    private String scbRestaddr;
+    private boolean highway;
+    private String scbHighwayaddr;
+    private boolean loadbalance;
+    private boolean flowcontrol;
+    private boolean circuitBreaker;
+    private boolean tracing;
 
-	public void setStyle(List<String> style) {
-		this.style = style;
-	}
 
-	public List<String> getDependencies() {
-		return this.dependencies;
-	}
+    public boolean isLoadbalance() {
+        return loadbalance;
+    }
 
-	public void setDependencies(List<String> dependencies) {
-		this.dependencies = dependencies;
-	}
+    public void setLoadbalance(boolean loadbalance) {
+        this.loadbalance = loadbalance;
+    }
 
-	public String getName() {
-		return this.name;
-	}
+    public boolean isFlowcontrol() {
+        return flowcontrol;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setFlowcontrol(boolean flowcontrol) {
+        this.flowcontrol = flowcontrol;
+    }
 
-	public String getType() {
-		return this.type;
-	}
+    public boolean isCircuitBreaker() {
+        return circuitBreaker;
+    }
 
-	public void setType(String type) {
-		this.type = type;
-	}
+    public void setCircuitBreaker(boolean circuitBreaker) {
+        this.circuitBreaker = circuitBreaker;
+    }
 
-	public String getDescription() {
-		return this.description;
-	}
+    public boolean isTracing() {
+        return tracing;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public void setTracing(boolean tracing) {
+        this.tracing = tracing;
+    }
 
-	public String getGroupId() {
-		return this.groupId;
-	}
+    public boolean isRest() {
+        return rest;
+    }
 
-	public void setGroupId(String groupId) {
-		this.groupId = groupId;
-	}
+    public void setRest(boolean rest) {
+        this.rest = rest;
+    }
 
-	public String getArtifactId() {
-		return this.artifactId;
-	}
+    public String getScbRestaddr() {
+        return scbRestaddr;
+    }
 
-	public void setArtifactId(String artifactId) {
-		this.artifactId = artifactId;
-	}
+    public void setScbRestaddr(String scbRestaddr) {
+        this.scbRestaddr = scbRestaddr;
+    }
 
-	public String getVersion() {
-		return this.version;
-	}
+    public boolean isHighway() {
+        return highway;
+    }
 
-	public void setVersion(String version) {
-		this.version = version;
-	}
+    public void setHighway(boolean highway) {
+        this.highway = highway;
+    }
 
-	public String getBootVersion() {
-		return this.bootVersion;
-	}
+    public String getScbHighwayaddr() {
+        return scbHighwayaddr;
+    }
 
-	public void setBootVersion(String bootVersion) {
-		this.bootVersion = bootVersion;
-	}
+    public void setScbHighwayaddr(String scbHighwayaddr) {
+        this.scbHighwayaddr = scbHighwayaddr;
+    }
 
-	public String getPackaging() {
-		return this.packaging;
-	}
 
-	public void setPackaging(String packaging) {
-		this.packaging = packaging;
-	}
+    public String getScbServiceName() {
+        return scbServiceName;
+    }
 
-	public String getApplicationName() {
-		return this.applicationName;
-	}
+    public void setScbServiceName(String scbServiceName) {
+        this.scbServiceName = scbServiceName;
+    }
 
-	public void setApplicationName(String applicationName) {
-		this.applicationName = applicationName;
-	}
+    public String getScbServiceVersion() {
+        return scbServiceVersion;
+    }
 
-	public String getLanguage() {
-		return this.language;
-	}
+    public void setScbServiceVersion(String scbServiceVersion) {
+        this.scbServiceVersion = scbServiceVersion;
+    }
 
-	public void setLanguage(String language) {
-		this.language = language;
-	}
+    public String getScbServiceCenterAddr() {
+        return scbServiceCenterAddr;
+    }
 
-	public String getPackageName() {
-		if (StringUtils.hasText(this.packageName)) {
-			return this.packageName;
-		}
-		if (StringUtils.hasText(this.groupId) && StringUtils.hasText(this.artifactId)) {
-			return getGroupId() + "." + getArtifactId();
-		}
-		return null;
-	}
+    public void setScbServiceCenterAddr(String scbServiceCenterAddr) {
+        this.scbServiceCenterAddr = scbServiceCenterAddr;
+    }
 
-	public void setPackageName(String packageName) {
-		this.packageName = packageName;
-	}
+    public List<String> getStyle() {
+        return this.style;
+    }
 
-	public String getJavaVersion() {
-		return this.javaVersion;
-	}
+    public void setStyle(List<String> style) {
+        this.style = style;
+    }
 
-	public void setJavaVersion(String javaVersion) {
-		this.javaVersion = javaVersion;
-	}
+    public List<String> getDependencies() {
+        return this.dependencies;
+    }
 
-	public String getBaseDir() {
-		return this.baseDir;
-	}
+    public void setDependencies(List<String> dependencies) {
+        this.dependencies = dependencies;
+    }
 
-	public void setBaseDir(String baseDir) {
-		this.baseDir = baseDir;
-	}
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getType() {
+        return this.type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getGroupId() {
+        return this.groupId;
+    }
+
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
+    }
+
+    public String getArtifactId() {
+        return this.artifactId;
+    }
+
+    public void setArtifactId(String artifactId) {
+        this.artifactId = artifactId;
+    }
+
+    public String getVersion() {
+        return this.version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
+    public String getBootVersion() {
+        return this.bootVersion;
+    }
+
+    public void setBootVersion(String bootVersion) {
+        this.bootVersion = bootVersion;
+    }
+
+    public String getPackaging() {
+        return this.packaging;
+    }
+
+    public void setPackaging(String packaging) {
+        this.packaging = packaging;
+    }
+
+    public String getApplicationName() {
+        return this.applicationName;
+    }
+
+    public void setApplicationName(String applicationName) {
+        this.applicationName = applicationName;
+    }
+
+    public String getLanguage() {
+        return this.language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
+    public String getPackageName() {
+        if (StringUtils.hasText(this.packageName)) {
+            return this.packageName;
+        }
+        if (StringUtils.hasText(this.groupId) && StringUtils.hasText(this.artifactId)) {
+            return getGroupId() + "." + getArtifactId();
+        }
+        return null;
+    }
+
+    public void setPackageName(String packageName) {
+        this.packageName = packageName;
+    }
+
+    public String getJavaVersion() {
+        return this.javaVersion;
+    }
+
+    public void setJavaVersion(String javaVersion) {
+        this.javaVersion = javaVersion;
+    }
+
+    public String getBaseDir() {
+        return this.baseDir;
+    }
+
+    public void setBaseDir(String baseDir) {
+        this.baseDir = baseDir;
+    }
 
 }
