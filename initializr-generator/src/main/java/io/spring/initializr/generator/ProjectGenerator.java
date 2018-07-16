@@ -476,7 +476,7 @@ public class ProjectGenerator {
         scbDependencyManagement.put("groupId", "org.apache.servicecomb");
         scbDependencyManagement.put("artifactId", "java-chassis-dependencies");
         //TODO version can config
-        scbDependencyManagement.put("versionToken","1.0.0-m1");
+        scbDependencyManagement.put("versionToken","1.0.0-m2");
         resolvedBoms.add(scbDependencyManagement);
 
 
