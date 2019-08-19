@@ -282,11 +282,15 @@ public class ProjectGenerator {
         String content = getMicroserviceYamlContent(request);
         writeText(new File(resources, "microservice.yaml"), content);
 
+        //    Create application.properties
+        String applicationContent = getApplicationPropertiesContent(request);
+        if(applicationContent!=null){
+            writeText(new File(resources, "application.properties"), applicationContent);
+        }
         if (request.hasWebFacet()) {
             new File(dir, "src/main/resources/templates").mkdirs();
             new File(dir, "src/main/resources/static").mkdirs();
         }
-
         return rootDir;
     }
 
@@ -347,7 +351,13 @@ public class ProjectGenerator {
         return out;
     }
 
-
+    public String getApplicationPropertiesContent(ProjectRequest request){
+        String applicationContent=null;
+        if(VERSION_2_0_0_M1.compareTo(Version.parse(request.getBootVersion()))<=0){
+            applicationContent = "spring.main.web-application-type=none";
+        }
+        return applicationContent;
+    }
 
     /**
      * Create a distribution file for the specified project structure directory and
@@ -471,14 +481,24 @@ public class ProjectGenerator {
 
         List<Map<String, String>> resolvedBoms = buildResolvedBoms(request);
 
-        //  Add ServiecComb dependencyManagement
         Map<String, String> scbDependencyManagement = new HashMap<>();
-        scbDependencyManagement.put("groupId", "org.apache.servicecomb");
-        scbDependencyManagement.put("artifactId", "java-chassis-dependencies");
-        //TODO version can config
-        scbDependencyManagement.put("versionToken","1.0.0-m2");
-        resolvedBoms.add(scbDependencyManagement);
-
+        if(VERSION_2_0_0_M1.compareTo(bootVersion)>0){
+            //  Add ServiecComb dependencyManagement
+            scbDependencyManagement.put("groupId", "org.apache.servicecomb");
+            scbDependencyManagement.put("artifactId", "java-chassis-dependencies");
+            //TODO version can config
+            scbDependencyManagement.put("versionToken","1.2.1");
+            resolvedBoms.add(scbDependencyManagement);
+        }else{
+            scbDependencyManagement.put("groupId", "org.apache.servicecomb");
+            scbDependencyManagement.put("artifactId", "java-chassis-dependencies-springboot2");
+            //TODO version can config
+            scbDependencyManagement.put("versionToken","1.2.1");
+            resolvedBoms.add(scbDependencyManagement);
+            if(isGradleBuild(request)){
+                model.put("springboot2Dependency",true);
+            }
+        }
 
         model.put("resolvedBoms", resolvedBoms);
         ArrayList<Map<String, String>> reversedBoms = new ArrayList<>(resolvedBoms);

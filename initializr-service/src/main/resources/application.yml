@@ -1366,3 +1366,5 @@ initializr:
     - name: 1.5.12
       id: 1.5.12.RELEASE
       default: true
+    - name: 2.1.2
+      id: 2.1.2.RELEASE

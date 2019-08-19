@@ -82,6 +82,10 @@ ext {
 
 {{/buildPropertiesVersions.empty}}
 dependencies {
+	compile('org.hibernate:hibernate-validator')
+	{{#springboot2Dependency}}
+	compile('org.springframework.boot:spring-boot:{{bootVersion}}')
+	{{/springboot2Dependency}}
 	{{#compileDependencies}}
 	compile('{{groupId}}:{{artifactId}}{{#version}}:{{version}}{{/version}}{{#type}}@{{type}}{{/type}}')
 	{{/compileDependencies}}
